@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="projectName">Project Name:</label>
+          <input type="text" id="projectName" class="form-control" formControlName="projectName">
+          <span *ngIf="!signupForm.get('projectName').valid && signupForm.get('projectName').touched" class="help-block">
+            <span *ngIf="signupForm.hasError('nameIsForbidden', 'projectName')">This name is invalid!</span>
+            <!-- izpolzvame hasError vmesto .errors kogato imame async validaciq -->
+            <span *ngIf="signupForm.hasError('required', 'projectName')">This name is required!</span>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="email">EMail:</label>
+          <input type="email" id="email" class="form-control" formControlName="email">
+          <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="help-block">Please enter a valid email!</span>
+        </div>
+        <div class="form-group">
+          <label for="status">Project Status:</label>
+          <select id="status" class="form-control" formControlName="status">
+            <option *ngFor="let pStatus of projectStatus" [value]="pStatus">{{ pStatus }}</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!signupForm.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
