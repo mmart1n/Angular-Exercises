@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+/*
+  :host -> Targetva samiqt element
+  display:block -> vs elementi po default ne sa tretirani kato blokovi elementi i po tozi nachin stavat blokovi
+*/
+
+.info-text{
+  text-align: center;
+}

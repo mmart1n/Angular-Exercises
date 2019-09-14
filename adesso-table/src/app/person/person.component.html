@@ -1,0 +1,24 @@
+<div class="container">
+  <table class="table bordless">
+    <tbody>
+      <tr>
+        <td style="text-align: right;">Name:</td>
+        <td>{{ person.getName() }}</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">Vorname:</td>
+        <td>{{ person.getVorname() }}</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">E-Mail:</td>
+        <td>{{ person.getEmail() }}</td>
+      </tr>
+      <tr>
+        <td style="text-align: right">Telefon:</td>
+        <td>{{ person.getTelefon() }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" style="margin-left: 60%;" class="btn btn-info" (click)="loadMyChildComponent()" data-toggle="modal" data-target="#myModal">Change</button>
+  <app-persons-table *ngIf="loadComponent"></app-persons-table>
+</div>

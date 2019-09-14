@@ -1,0 +1,47 @@
+<div class = "container"><div id="myModal" class="modal fade" role="table">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Personen</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped" id="table-persons">
+          <thead>
+            <tr>
+              <th scope="col" (click)="setOrder('name')" [class.active]="order === 'name'">
+                Name
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </th>
+              <th scope="col" [class.active]="order === 'vorname'" (click)="setOrder('vorname')">
+                Vorame
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </th>
+              <th scope="col" [class.active]="order === 'email'" (click)="setOrder('email')">
+                Email
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </th>
+              <th scope="col">
+                Telefon
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let l of list | orderBy: order:reverse:'case-insensitive'" (dblclick)="onChoosenPerson(l)">
+              <td>{{l.getName()}}</td>
+              <td>{{l.getVorname()}}</td>
+              <td>{{l.getEmail()}}</td>
+              <td>{{l.getTelefon()}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
